@@ -40,7 +40,7 @@ def hello():
 """
 Pushes vote info to Redis
 
-Generates voter ID if not already set and pushes vote to Redis client
+Generates voter ID if not already set and pushes vote, voter ID and hostname of container to Redis client
 
 Returns:
     Resp: Vote and voter ID
