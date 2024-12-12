@@ -37,6 +37,14 @@ Returns:
 
 @app.route("/", methods=['POST','GET'])
 def hello():
+"""
+Pushes vote info to Redis
+
+Generates voter ID if not already set and pushes vote to Redis client
+
+Returns:
+    Resp: Vote and voter ID
+"""
     voter_id = request.cookies.get('voter_id')
     if not voter_id:
         voter_id = hex(random.getrandbits(64))[2:-1]
