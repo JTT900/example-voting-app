@@ -1,3 +1,9 @@
+"""
+Module for voting application.
+
+Consists of a Flask webserver to handle voting and displaying results.
+"""
+
 from flask import Flask, render_template, request, make_response, g
 from redis import Redis
 import os
@@ -17,6 +23,14 @@ app.logger.handlers.extend(gunicorn_error_logger.handlers)
 app.logger.setLevel(logging.INFO)
 
 def get_redis():
+"""
+Initializes Redis client.
+
+Gets Redis client if not already running
+
+Returns:
+    Redis: Redis client instance. 
+"""
     if not hasattr(g, 'redis'):
         g.redis = Redis(host="redis", db=0, socket_timeout=5)
     return g.redis
