@@ -43,7 +43,7 @@ Pushes vote info to Redis
 Generates voter ID if not already set and pushes vote, voter ID and hostname of container to Redis client
 
 Returns:
-    Resp: Vote and voter ID
+    Resp: Vote, voter ID and container hostname
 """
     voter_id = request.cookies.get('voter_id')
     if not voter_id:
